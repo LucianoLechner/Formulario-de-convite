@@ -41,12 +41,127 @@
 
     /* TIPOGRAFIA */
     --font-family-leckerlione: "Leckerli One", cursive;
-    --logo: 400 40px/auto var(--font-family-leckerlione);
+    --logo: 400 40px var(--font-family-leckerlione);
     --font-family-baloo: "Baloo 2", sans-serif;
-    --heading-md: 800 28px/auto var(--font-family-baloo);
-    --heading-sm: 800 18px/auto var(--font-family-baloo);
+    --heading-md: 800 28px var(--font-family-baloo);
+    --heading-sm: 800 18px var(--font-family-baloo);
     --font-family-opensans: "Open Sans", sans-serif;
-    --body-md: 600 16px/auto var(--font-family-opensans);
-    --body-sm: 600 14px/auto var(--font-family-opensans);
-    --body-xs: 600 12px/auto var(--font-family-opensans);
+    --body-md: 400 16px var(--font-family-opensans);
+    --body-sm: 400 14px var(--font-family-opensans);
+    --body-xs: 600 12px var(--font-family-opensans);
 }
+
+body{
+    background-color: var(--shape-background);
+}
+
+.flex-col{
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+}
+
+.input-wrapper {
+    width: 560px;
+    display: grid;
+    gap: 16px !important;
+}
+
+.input-col-2{
+    width: 100%;
+    display: flex;
+    gap: 16px;
+}
+
+.flex-label{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    & label {
+        font: var(--body-sm);
+        color: var(--text-body);
+    }
+
+    & input {
+        border-radius: 8px;
+        width: 100%;
+        height: 48px;
+        padding-inline: 16px;
+        background-color: var(--input-base);
+        border: 1px solid var(--input-stroke);
+        color: var(--input-placeholder);
+        font: var(--body-md);
+    }
+}
+
+input:focus{
+    border-color: var(--brand-light);
+    outline: none;
+}
+
+input[type="datetime-local"] {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+input[type="datetime-local"]::-webkit-calendar-picker-indicator {
+    opacity: 0; 
+}
+
+.radio-inner{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    border-radius: 8px;
+    height: 48px;
+    background-color: var(--input-base);
+    border: 1px solid var(--input-stroke);
+    color: var(--input-placeholder);
+    font: var(--body-md);
+    gap: 4px;
+    padding-inline: 4px;
+
+    & .radio-active {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        position: relative;
+        height: 40px;
+        /* border: 1px solid red; */
+
+        & label {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: transparent;
+            gap: 8px;
+            width: 100%;
+            height: 40px;
+            /* border: 1px solid yellow; */
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        & #Remoto, #Presencial {
+            height: 40px;
+            width: 100%;
+            appearance: none;
+            border: none;
+            padding-inline: 4px;
+        }
+    }
+}
+
+input[type="radio"]:checked + label {
+    background-color: var(--input-stroke);
+    border-radius: 8px;
+
+    & svg path {
+        fill: var(--brand-light);
+    }
+}
+
